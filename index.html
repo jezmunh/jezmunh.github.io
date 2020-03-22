@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clicker Game</title>
+	<meta charset="UTF-8">
+	<style>
+		body{
+			background-color:Sienna;
+			font-family: "Comic Sans MS"; 
+		}
+	.click{
+  width: 10em; 
+  margin: 1em auto;
+  background: red;
+  border: 4px solid DarkRed;
+  border-radius: 50%;
+  top:100px;
+  left:260px;
+  position:absolute;
+}
+
+.click::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 100%;
+}
+
+.backcl{
+	width:700px;
+	height:500px;
+	background-color:SaddleBrown;
+	position:absolute;
+	left:300px;
+
+}
+
+.menu{
+	width:250px;
+	height:500px;
+	background-color:SaddleBrown; 
+}
+.vk_like{
+	position:absolute;
+	top:550px;
+}
+
+.shot {
+	position:absolute;
+	left:1100px;
+	top:100px;
+}
+
+	</style>
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?167"></script>
+
+<script type="text/javascript">
+  VK.init({apiId: 7356099, onlyWidgets: true});
+</script>
+
+<!-- Put this div tag to the place, where the Like block will be -->
+<div id="vk_like" class="vk_like"></div>
+<script type="text/javascript">
+VK.Widgets.Like("vk_like", {type: "button"});
+</script>
+
+
+
+
+</head>
+<body>
+
+
+
+<div class="shot" id="shot">
+<center>Ты накликал:	<div id="clickCount">  </div>
+<div class="moneyb" id="moneyb">Монеты: <div id="money"></div>
+</center>
+</div>
+<div class="backcl"><div class="click" id="click="></div></div>
+</div>
+
+<div class="menu" id="menu">
+<center>	<big><big>Меню</big></big></center>
+<input type="button" id="magazin" value="Магазин">
+<p></p>
+</div>
+
+</body>
+<footer>
+<center>Игра сделанна JezMunchauzen
+
+</center>
+<center>
+
+</center>
+</footer>
+<script src="main.js"></script>
+</html>
