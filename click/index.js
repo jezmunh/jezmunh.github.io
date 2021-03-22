@@ -23,7 +23,7 @@ function init(){
     publishvk.on('click', function(evt){
         VK.init(function() {
             // API initialization succeeded
-            VK.api("wall.post", {"message": "I scored "+count+"points in the game", "v":"5.73"}, function (data) {
+            VK.api("wall.post", {"message": "Test VK API ", "v":"5.73"}, function (data) {
                 
                 });
          }, function() {
