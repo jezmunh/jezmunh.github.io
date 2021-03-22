@@ -13,16 +13,17 @@ function init(){
     publishvk.y = 25;
     
     
-    circle.on("click", function(evt) {       
+    circle.on("click", function(evt) {
+            
         
-        
-        count++;
+        var text = new createjs.Text("Count:",count++, "20px Arial", "#ff7700");    
+        console.log(count);
         
     });
     publishvk.on('click', function(evt){
         VK.init(function() {
             // API initialization succeeded
-            VK.api("wall.post", {"message": "Hello!", "v":"5.73"}, function (data) {
+            VK.api("wall.post", {"message": "I scored "+count+"points in the game", "v":"5.73"}, function (data) {
                 
                 });
          }, function() {
