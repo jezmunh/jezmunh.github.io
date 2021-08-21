@@ -1,1 +1,172 @@
-eval(function(a,b,c){if(a||c){while(a--)b=b.replace(new RegExp(a,'g'),c[a]);}return b;}(102,'24 46 9(){31 74=25 42("/21/98",{64: "7", 50:{"1": "23/58"}}); 55 (74.67 === 92){31 98=25 74.58(); 61 78=38.69("88"); 98.43(93 =>{78.22(76(93)); }); }}24 46 8(54){31 74=25 42("/21/98/"+54,{64: "7", 50:{"1": "23/58"}}); 55 (74.67 === 92){31 93=25 74.58(); 31 44=38.45["94"]; 44.40["54"].99=93.17; 44.40["65"].99=93.65; 44.40["63"].99=93.63; }}24 46 3(97, 96){31 74=25 42("21/98",{64: "13", 50:{"1": "23/58", "2-16": "23/58" }, 26: 11.84({ 65: 97, 63: 96 }) }); 55 (74.67 === 92){31 93=25 74.58(); 73(); 38.69("88").22(76(93)); }}24 46 6(95, 97, 96){31 74=25 42("21/98",{64: "14", 50:{"1": "23/58", "2-16": "23/58" }, 26: 11.84({ 54: 95, 65: 97, 63: 96, }) }); 55 (74.67 === 92){31 93=25 74.58(); 73(); 38.69("91[34-77=\'"+93.17+"\']").72(76(93)); }}24 46 5(54){31 74=25 42("/21/98/"+54,{64: "4", 50:{"1": "23/58"}}); 55 (74.67 === 92){31 93=25 74.58(); 38.69("91[34-77=\'"+93.17+"\']").70(); }}46 73(){31 44=38.45["94"]; 44.73(); 44.40["54"].99=0;}46 76(93){31 15={ \':48:\': \'<56 83="53: \':35:\': \'<56 83="53: \':47:\':\'<56 83="53: \':36:\':\'<56 83="53: \':60:\':\'<56 83="53: \':79:\':\'<56 83="53: \':33:\':\'<56 83="53: \':100:\':\'<56 83="53: \':101:\':\'<56 83="53: \':51:\':\'<56 83="53: \':87:\':\'<56 83="53: }; 46 29(63){61 82=12.59(15); 82.43(81 => 63=63.90().71(81, 15[81])); 75 63;}31 91=38.32("91"); 91.80("34-77", 93.17); 31 66=38.32("89"); 31 10=38.32("49") 66.22(10+93.65+10); 66.57="<37 30=\'27-65\'><85>"+93.65+"</85>"+"</28>"+"</28>"+"Твинэйджер"+"</28>"+"</28>"+"<18 52=\'#\'>Моя страничка</18>"+"</37>" 91.22(66); 31 20=38.32("89"); 20.22(93.63) 20.57=29(93.63) 91.22(20); 31 62=38.32("89"); 75 91;}38.45["94"].19("86", 39 =>{39.68(); 31 44=38.45["94"]; 31 54=44.40["54"].99; 31 65=44.40["65"].99; 31 63=44.40["63"].99; 55 (54 == 0) 3(65, 63); 41 6(54, 65, 63);});9(); ','0,Accept,Content,CreateUser,DELETE,DeleteUser,EditUser,GET,GetUser,GetUsers,H1Tag,JSON,Object,POST,PUT,SMILES_MAP,Type,_id,a,addEventListener,ageTd,api,append,application,async,await,body,box,br,buildMessage,class,const,createElement,cry,data,derisive,dirol,div,document,e,elements,else,fetch,forEach,form,forms,function,good,grin,h1,headers,help,href,http,id,if,img,innerHTML,json,keys,laugh,let,linksTd,message,method,name,nameTd,ok,preventDefault,querySelector,remove,replace,replaceWith,reset,response,return,row,rowid,rows,sarcasm,setAttribute,smile,smiles,src,stringify,strong,submit,sun,tbody,td,toString,tr,true,user,userForm,userId,userMessage,userName,users,value,victory,wacko'.split(',')));
+async function GetUsers() {
+    // отправляет запрос и получаем ответ
+    const response = await fetch("/api/users", {
+        method: "GET",
+        headers: { "Accept": "application/json" }
+    });
+    // если запрос прошел нормально
+    if (response.ok === true) {
+        // получаем данные
+        const users = await response.json();
+        let rows = document.querySelector("tbody"); 
+        users.forEach(user => {
+            // добавляем полученные элементы в таблицу
+            rows.append(row(user));
+        });
+    }
+}
+// Получение одного пользователя
+async function GetUser(id) {
+    const response = await fetch("/api/users/" + id, {
+        method: "GET",
+        headers: { "Accept": "application/json" }
+    });
+    if (response.ok === true) {
+        const user = await response.json();
+        const form = document.forms["userForm"];
+        form.elements["id"].value = user._id;
+        form.elements["name"].value = user.name;
+        form.elements["message"].value = user.message;
+    }
+}
+// Добавление пользователя
+async function CreateUser(userName, userMessage) {
+
+    const response = await fetch("api/users", {
+        method: "POST",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+            name: userName,
+            message: userMessage
+        })
+    });
+    if (response.ok === true) {
+        const user = await response.json();
+        reset();
+        document.querySelector("tbody").append(row(user));
+    }
+}
+// Изменение пользователя
+async function EditUser(userId, userName, userMessage) {
+    const response = await fetch("api/users", {
+        method: "PUT",
+        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify({
+            id: userId,
+            name: userName,
+            message: userMessage,
+        })
+    });
+    if (response.ok === true) {
+        const user = await response.json();
+        reset();
+        document.querySelector("tr[data-rowid='" + user._id + "']").replaceWith(row(user));
+    }
+}
+// Удаление пользователя
+async function DeleteUser(id) {
+    const response = await fetch("/api/users/" + id, {
+        method: "DELETE",
+        headers: { "Accept": "application/json" }
+    });
+    if (response.ok === true) {
+        const user = await response.json();
+        document.querySelector("tr[data-rowid='" + user._id + "']").remove();
+    }
+}
+
+// сброс формы
+function reset() {
+    const form = document.forms["userForm"];
+    form.reset();
+    form.elements["id"].value = 0;
+}
+// создание строки для таблицы
+function row(user) {
+    const SMILES_MAP = {
+        ':grin:': '<img src="http://www.kolobok.us/smiles/standart/grin.gif">',
+        ':derisive:': '<img src="http://www.kolobok.us/smiles/standart/derisive.gif">',
+        ':good:':'<img src="http://www.kolobok.us/smiles/standart/good.gif">',
+        ':dirol:':'<img src="http://www.kolobok.us/smiles/standart/dirol.gif">',
+        ':laugh:':'<img src="http://www.kolobok.us/smiles/standart/laugh3.gif">',
+        ':sarcasm:':'<img src="http://www.kolobok.us/smiles/standart/sarcasm.gif">',
+        ':cry:':'<img src="http://www.kolobok.us/smiles/standart/cray2.gif">',
+        ':victory:':'<img src="http://www.kolobok.us/smiles/standart/victory.gif">',
+        ':wacko:':'<img src="http://www.kolobok.us/smiles/madhouse/wacko2.gif">',
+        ':help:':'<img src="http://www.kolobok.us/smiles/light_skin/help.gif">',
+        ':sun:':'<img src="http://www.kolobok.us/smiles/light_skin/sun_bespectacled.gif">'
+      };
+      function buildMessage(message) {
+        let smiles = Object.keys(SMILES_MAP);
+        smiles.forEach(smile => message = message.toString().replace(smile, SMILES_MAP[smile]));
+        return message;
+      }
+
+    const tr = document.createElement("tr");
+    tr.setAttribute("data-rowid", user._id);
+
+    // const idTd = document.createElement("td");
+    // idTd.append(user._id);
+    // tr.append(idTd);
+
+    const nameTd = document.createElement("td");
+    const H1Tag = document.createElement("h1")
+    nameTd.append(H1Tag+user.name+H1Tag);
+    nameTd.innerHTML = "<div class='box-name'><strong>"+user.name+"</strong>"+"</br>"+"</br>"+"Твинэйджер"+"</br>"+"</br>"+"<a href='#'>Моя страничка</a>"+"</div>"
+    tr.append(nameTd);
+
+    const ageTd = document.createElement("td");
+    ageTd.append(user.message)
+    ageTd.innerHTML = buildMessage(user.message)
+    tr.append(ageTd);
+    
+    const linksTd = document.createElement("td");
+
+    // const editLink = document.createElement("a");
+    // editLink.setAttribute("data-id", user._id);
+    // editLink.setAttribute("style", "cursor:pointer;padding:15px;");
+    // editLink.append("Изменить");
+    // editLink.addEventListener("click", e => {
+
+    //     e.preventDefault();
+    //     GetUser(user._id);
+    // });
+    // linksTd.append(editLink);
+
+    // const removeLink = document.createElement("a");
+    // removeLink.setAttribute("data-id", user._id);
+    // removeLink.setAttribute("style", "cursor:pointer;padding:15px;");
+    // removeLink.append("Удалить");
+    // removeLink.addEventListener("click", e => {
+
+    //     e.preventDefault();
+    //     DeleteUser(user._id);
+    // });
+
+    // linksTd.append(removeLink);
+    // tr.appendChild(linksTd);
+
+    return tr;
+}
+// сброс значений формы
+// document.getElementById("reset").click(function (e) {
+
+//     e.preventDefault();
+//     reset();
+// })
+
+// отправка формы
+document.forms["userForm"].addEventListener("submit", e => {
+    e.preventDefault();
+    const form = document.forms["userForm"];
+    const id = form.elements["id"].value;
+    const name = form.elements["name"].value;
+    const message = form.elements["message"].value;
+    if (id == 0)
+        CreateUser(name, message);
+    else
+        EditUser(id, name, message);
+});
+
+// загрузка пользователей
+GetUsers();
