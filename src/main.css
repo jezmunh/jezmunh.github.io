@@ -1,0 +1,44 @@
+body{
+    background-color: lightblue;
+}
+a{
+    text-decoration: none;
+    color:blue;
+}
+a:hover{
+    color:darkblue;
+}
+.message-table{
+    position:absolute;
+    left:25%;
+    /*width:100%;*/
+    
+    
+}
+th{
+    background-color:lightskyblue;
+    
+    
+}
+td{
+    
+    background-color: lightcyan;
+}
+
+table{
+   width:100%;
+    
+  }
+
+.box-name{
+    text-align: center;
+}
+
+/* Smartphones (вертикальная) ----------- */
+@media only screen and (max-width: 600px) {
+     .message-table{
+         position:absolute;
+         left:0px;
+         right:0px;
+     }
+    }
