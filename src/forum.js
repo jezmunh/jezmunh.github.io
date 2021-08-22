@@ -112,7 +112,7 @@ function row(user) {
     const nameTd = document.createElement("td");
     const H1Tag = document.createElement("h1")
     nameTd.append(H1Tag+user.name+H1Tag);
-    nameTd.innerHTML = "<div class='box-name'><strong>"+user.name+"</strong>"+"</br>"+"</br>"+"Твинэйджер"+"</br>"+"</br>"+"<a href='#'>Моя страничка</a>"+"</div>"
+    nameTd.innerHTML = "<div class='box-name'><strong>"+user.name+"</strong>"+"</br>"+"</br>"+"Твинейджер"+"</br>"+"</br>"+"<a href='#'>Моя страничка</a>"+"</div>"
     tr.append(nameTd);
 
     const ageTd = document.createElement("td");
