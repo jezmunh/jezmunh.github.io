@@ -1,6 +1,6 @@
 async function GetUsers() {
     // отправляет запрос и получаем ответ
-    const response = await fetch("/api/users", {
+    const response = await fetch("/topic/", {
         method: "GET",
         headers: { "Accept": "application/json" }
     });
