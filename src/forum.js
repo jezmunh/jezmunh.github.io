@@ -32,7 +32,7 @@ async function GetUser(id) {
 // Добавление пользователя
 async function CreateUser(userName, userMessage) {
 
-    const response = await fetch("api/users", {
+    const response = await fetch("/api/users", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -48,7 +48,7 @@ async function CreateUser(userName, userMessage) {
 }
 // Изменение пользователя
 async function EditUser(userId, userName, userMessage) {
-    const response = await fetch("api/users", {
+    const response = await fetch("/api/users", {
         method: "PUT",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
