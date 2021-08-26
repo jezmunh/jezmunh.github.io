@@ -3,7 +3,7 @@ body{
 }
 a{
     text-decoration: none;
-    color:red;
+    color:blue;
 }
 a:hover{
     color:darkblue;
