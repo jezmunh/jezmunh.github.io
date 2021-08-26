@@ -117,7 +117,7 @@ function row(user) {
 
     const ageTd = document.createElement("td");
     ageTd.append(user.message)
-    ageTd.innerHTML = buildMessage("<h1>"+user.message+"</h1>")
+    ageTd.innerHTML = buildMessage(user.message)
     tr.append(ageTd);
     
     const linksTd = document.createElement("td");
