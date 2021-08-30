@@ -38,6 +38,17 @@ table{
 .box-name{
     text-align: center;
 }
+ tr{
+    position: relative;
+  }
+
+      citat {
+          width:25%;
+          height: 50%;          
+          background-color:rgb(199, 187, 118);
+          color:rgb(128, 97, 63);
+          position: absolute;
+      }
 
 /* Smartphones (вертикальная) ----------- */
 @media only screen and (max-width: 600px) {
