@@ -26,7 +26,7 @@ th{
     
 }
 td{
-    
+    position: relative;
     background-color: lightcyan;
 }
 
@@ -38,9 +38,9 @@ table{
 .box-name{
     text-align: center;
 }
- th{
-    position: relative;
-  }
+
+    
+ 
 
       citat {
           width:25%;
