@@ -20,6 +20,29 @@ body {
     text-align: center;
     font-family: sans-serif;
   }
+  .deadline-message{
+    display: none;
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+  }
+   
+  .visible{
+    display: block;
+    color:white;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 100;
+    font-family: sans-serif;
+  }
+   
+  .hidden{
+    display: none;
+  }
   .timer-title {
     color: white;
     font-weight: 100;
