@@ -25,12 +25,14 @@ body {
 
 nav {
     display: flex;
-    width: 100%;
+    width: 99.%;
     background-color: black;
     color: white;
     text-align: center;
     align-items: center;
     padding: 5px;
+    word-spacing: 25px;
+    
 }
 
 nav a {
@@ -47,11 +49,12 @@ nav a:hover{
     width:fit-content;
     margin-left: 10px;
     padding-left: 5px;
+    
 }
 
 footer {
     display: flex;    
-    width: 100%;
+    width: 99.%;
     justify-content: center;
     /* position: fixed; */
     bottom: 0;
@@ -82,10 +85,14 @@ main {
     z-index: 10;
 }
 #about_info {
-    width: 100%;
+    width: 99.%;
     padding: 25px;    
     background-color: white;
     border-radius: 10px;
+    
+}
+#about_info p{
+    line-height:1.2;
 }
 #projects_info {
     width: 100%;
@@ -109,7 +116,7 @@ main {
     width: 85%;
     position: relative;
     margin: 10px;
-    padding: 5px;
+    padding: 15px;
     background-color: white;
     border-radius: 10px;
 
@@ -163,4 +170,11 @@ main {
 }
 #dice-block a {
     color: blue
+}
+
+#current_time {
+    word-spacing: 2px;
+    position: relative;
+    right: 0;
+    margin-left: auto;
 }
