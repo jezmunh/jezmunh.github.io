@@ -5,6 +5,7 @@ body {
     background: url(img/background_test.png);
     background-repeat: no-repeat;    
     font-weight: 100;
+    overflow: hidden;
     
   }
  
